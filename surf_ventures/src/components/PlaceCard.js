@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -14,6 +13,9 @@ const useStyles = makeStyles({
     maxWidth: 645,
     background: "rgba(0,0,0,0.5)",
     margin: "20px",
+  },
+  button: {
+    color: "yellow",
   },
   desc: {
     color: "whitesmoke",
@@ -35,12 +37,12 @@ export default function PlaceCard({ place, checked }) {
   const classes = useStyles();
 
   return (
-    <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
+    <Collapse in={checked} {...(checked ? { timeout: 1200 } : {})}>
       <Card className={classes.root}>
         <CardMedia
           className={classes.media}
           image={place.imgURL}
-          title="Contemplative Reptile"
+          title={place.title}
         />
         <CardContent>
           <Typography
@@ -61,10 +63,7 @@ export default function PlaceCard({ place, checked }) {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" color="primary">
-            Share
-          </Button>
-          <Button size="small" color="primary">
+          <Button size="small" className={classes.button}>
             Learn More
           </Button>
         </CardActions>

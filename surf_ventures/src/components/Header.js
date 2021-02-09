@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Collapse, IconButton, Toolbar } from "@material-ui/core";
 import SortIcon from "@material-ui/icons/Sort";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { Link as Scroll } from "react-scroll";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -74,9 +75,11 @@ function Header() {
             Welcome to <br /> Surf
             <span className={classes.colorText}>Ventures</span>
           </h1>
-          <IconButton>
-            <ExpandMoreIcon className={classes.goDown} />
-          </IconButton>
+          <Scroll to="destinations" smooth={true}>
+            <IconButton>
+              <ExpandMoreIcon className={classes.goDown} />
+            </IconButton>
+          </Scroll>
         </div>
       </Collapse>
     </div>
